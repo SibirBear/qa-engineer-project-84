@@ -1,0 +1,23 @@
+---
+name: Igor Cherkasov
+job: QA Engineer
+level: junior
+email: c.igor@list.ru
+description: |
+  Изучаю тестирование и автоматизацию тестирования, 
+  применяя полученные навыки на своих Java проектах.
+skills: 
+  - Функциональное и нефункциональное тестирование веб-приложений;
+  - Тестирование мобильных приложений;
+  - Техники тест-анализа и тест-дизайна;
+  - Написание тестовой документации (чек-листы, тест-кейсы, баг-репорты);
+  - Тестирование REST API, SOAP;
+  - Работа в баг-трекинговых системах (GitHub, Trello)
+  - Организация процессов в TMS (Qase.io)
+  - Опыт работы с Markdown, Yaml, Json, xml;
+  - Базовые знания HTML, CSS, JavaScript;
+  - Понимание методологии Agile - SCRUM / Kanban;
+  - Опыт работы с DevTools, Postman, SoapUI, Swagger;
+  - Опыт работы c системой контроля версий Git;
+  - Опыт работы c Jira, Confluence;
+  - SQL, СУБД PostgresQL, MongoDB, OracleDB, MSSQL, MySQL.
