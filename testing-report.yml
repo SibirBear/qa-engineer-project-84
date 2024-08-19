@@ -121,4 +121,4 @@
 
 - summary: |
     Проверка работы сайта на кроссбраузерность
-  status: fail
+  status: pass
