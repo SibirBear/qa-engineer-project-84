@@ -1,0 +1,191 @@
+---
+test-cases:
+    - summary: |
+        Проверка изменения языка интерфейса на русский на главной странице
+      status: pass
+
+    - summary: |
+        Проверка изменения языка интерфейса на английский на главной странице
+      status: pass
+        
+    - summary: |
+        Проверка отображения "Корзины"
+      status: pass
+        
+    - summary: |
+        Проверка изменения языка интерфейса на русский на странице Cart
+      status: pass
+        
+    - summary: |
+        Проверка изменения языка интерфейса на английский на странице Cart
+      status: pass
+        
+    - summary: |
+        Проверка перехода на главную страницу со страницы Cart
+      status: pass
+        
+    - summary: |
+        Проверка отображения товаров на главной странице
+      status: pass
+        
+    - summary: |
+        Проверка фильтрации при вводе ключевых слов в названии товара 
+      status: fail
+        
+    - summary: |
+        Проверка фильтрации при выборе категории товаров
+      status: pass
+
+    - summary: |
+        Проверка фильтрации при выборе бренда товаров
+      status: pass
+
+    - summary: |
+        Проверка фильтрации товаров по наличию
+      status: fail
+        
+    - summary: |
+        Проверка фильтрации товаров по цене
+      status: pass
+
+    - summary: |
+        Проверка невозможности ввода отрицательных чисел при фильтрации по ценге
+      status: fail
+
+    - summary: |
+        Проверка кнопки навигации Next на главной странице
+      status: pass
+
+    - summary: |
+        Проверка кнопки навигации Previous на главной странице
+      status: fail
+      
+    - summary: |
+        Проверка отображения информации о товаре в карточке
+      status: pass
+
+    - summary: |
+        Проверка невозможности изменения информации о товаре в карточке товара
+      status: pass
+        
+    - summary: |
+        Проверка фильтрации товаров по хэштегу категории в карточке товара
+      status: pass
+
+    - summary: |
+        Проверка возврата к списку товаров, которой был перед выбором карточки товара
+      status: pass
+
+    - summary: |
+        Проверка добавления товара в корзину из списка товаров
+      status: pass
+
+    - summary: |
+        Проверка добавления товара в корзину из карточки товара
+      status: pass
+
+    - summary: |
+        Проверка правильности суммы всех товаров в корзине
+      status: pass
+
+    - summary: |
+        Проверка очистки корзины
+      status: fail
+      
+    - summary: |
+        Проверка удаления товара из корзины
+      status: pass
+
+    - summary: |
+        Проверка увеличения счетчика корзины в шапке
+      status: pass
+
+    - summary: |
+        Проверка возврата к списку товаров из корзины
+      status: pass
+
+    - summary: |
+        Проверка успешного заказа товара
+      status: fail
+
+    - summary: |
+        Проверка отправки запроса на сервер при оформлении заказа товара
+      status: fail
+        
+    - summary: |
+        Проверка на xss уязвимость
+      status: pass
+
+    - summary: |
+        Проверка сайта на адаптивность
+      status: fail
+
+    - summary: |
+        Проверка работы сайта на кроссбраузерность
+      status: pass
+
+
+bugreports:
+    - summary: |
+        Изменяется язык интерфейса при переходе на главную страницу из корзины
+      environment: |
+        Windows 10, Google Chrome Версия 127.0.6533.100
+      steps-to-reproduce: |
+        1. Открыть в браузере https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+        2. Нажать Language
+        3. Выбрать Russian
+        4. Нажать Корзина
+        5. Нажать Магазин
+      expected-result: |
+        Выбранный язык интерфейса должен сохранятся
+      actual-result: |
+        Язык интерфейса изменяется на английский
+
+    - summary: |
+        Отображаются все товары не удовлетворяющие ключевому слову
+      environment: |
+        Windows 10, Google Chrome Версия 127.0.6533.100
+      steps-to-reproduce: |
+        1. Открыть в браузере https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+        2. В поле Search ввести "4343#$34fgdwegbsfd"
+      expected-result: |
+        Должно быть выведено сообщение, что ничего не найдено
+      actual-result: |
+        Фильтрации не происходит, отображаются все товары на странице
+
+    - summary: |
+        Не работает фильтр In Stock
+      environment: |
+        Windows 10, Google Chrome Версия 127.0.6533.100
+      steps-to-reproduce: |
+        1. Открыть в браузере https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+        2. Снять чек-бокс In Stock
+      expected-result: |
+        Дожен быть выведен товар, которого нет в наличии
+      actual-result: |
+        Отображаются все товары на странице, исчезла кнопка навигации Next
+
+    - summary: |
+        Возможность указать отрицательное значение в фильтре Price To
+      environment: |
+        Windows 10, Google Chrome Версия 127.0.6533.100
+      steps-to-reproduce: |
+        1. Открыть в браузере https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+        2. В поле Price To нажать на стрелочку вниз
+      expected-result: |
+        Значение в поле ввода равно 0
+      actual-result: |
+        Значение в поле ввода равно -1, исчезла кнопка навигации Next
+
+
+    - summary: |
+        Меню фильтров съезжает под товары на главной странице в мобильной версии
+      environment: |
+        Windows 10, Google Chrome Версия 127.0.6533.100
+      steps-to-reproduce: |
+        1. Открыть в браузере https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+        2. В DevTools выбрать разные устройства с шириной экрана менее 768
+      expected-result: |
+        Меню фильтров скрыта в левой стороне экрана
+      actual-result: |
+        Меню фильтров находитсся под товарами в самом низу страницы
