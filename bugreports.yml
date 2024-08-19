@@ -1,0 +1,183 @@
+---
+- summary: |
+    Возможность указать отрицательное значение в фильтре Price From
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. В поле Price From ввести с клавиатуры -1
+  expected-result: |
+    Невозможность ввести отрицательное значение, появляется уведомление
+  actual-result: |
+    В поле ввода можно ввести -1
+    Скриншот Screenshots/Bug_001.jpg
+
+- summary: |
+    Возможность указать отрицательное значение в фильтре Price To
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. В поле Price To нажать на стрелочку вниз
+  expected-result: |
+    Значение в поле ввода равно 0
+  actual-result: |
+    Значение в поле ввода равно -1
+    Скриншот Screenshots/Bug_002.jpg
+
+- summary: |
+    Не обновляется список товаров при нажатии кнопки навигации Previous
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать на кнопку Next (5 раз)
+    3. Нажать на кнопку Previous (5 раз)
+  expected-result: |
+    Отображается изначальный список товаров
+  actual-result: |
+    Список товаров не обновляется
+
+- summary: |
+    Не отображается список товаров при нажатии хэштега в карточке товара
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать на любой товар
+    3. Нажать на хэштег
+  expected-result: |
+    Отображается список товаров у которых присутствует выбранный хэштег
+  actual-result: |
+    Список товаров не отображается, остается страница с карточкой товара
+
+- summary: |
+    Нельзя сбросить фильтр категории
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать на фильтр Category
+  expected-result: |
+    В списке выбора категорий должно быть пустое значение
+  actual-result: |
+    В списке выбора категорий нет пустого значения
+    Скриншот Screenshots/Bug_003.jpg
+
+- summary: |
+    Не очищается корзина кнопкой Clear Cart
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать Add to cart у любого товара
+    3. Нажать на Cart
+    4. Нажать Clear Cart
+    5. Обновить страницу
+  expected-result: |
+    Корзина пуста
+  actual-result: |
+    В корзине остается добавленный товар
+
+- summary: |
+    Не очищается корзина после оформления заказа
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать Add to cart у любого товара
+    3. Нажать на Cart
+    4. Нажать Checkout
+  expected-result: |
+    Корзни пуста
+  actual-result: |
+    В корзине остается добавленный товар
+
+- summary: |
+    При оформлении заказа от сервера приходит ответ со статусом 500
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать Add to cart у любого товара
+    3. Нажать на Cart
+    4. Нажать Checkout
+  expected-result: |
+    При оформлении заказа от сервера приходит ответ с успешным статусом
+  actual-result: |
+    Приходит ответ 
+    {
+    "status": "500",
+    "title": "failed",
+    "type": "about:blank",
+    "detail": "failed",
+    "message": "failed"
+    }
+    
+- summary: |
+    Не отображается добавленое количество в корзине на мобильных устройствах
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать Add to cart у любого товара
+    3. Нажать на Cart
+    4. В DevTools выбрать разные устройства с шириной экрана менее 768
+  expected-result: |
+    Отображается количество товара в корзине
+  actual-result: |
+    Количество добавленного товара в корзине отсутствует
+
+- summary: |
+    Не отображается полностью сумма по товару в корзине на мобильных устройствах
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать Add to cart у любого товара
+    3. Нажать на Cart
+    4. В DevTools выбрать разные устройства с шириной экрана менее 500
+  expected-result: |
+    Сумма по товару отображается полностью с валютой
+  actual-result: |
+    Сумма по товару отображается без валюты и частично
+    Скриншот Screenshots/Bug_004.jpg
+
+- summary: |
+    Католог товаров съезжает под футер на главной странице на мобильных устройствах
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. В DevTools выбрать разные устройства с шириной экрана менее 401
+  expected-result: |
+    Католог товаров должен отображаться между шапкой и футером
+  actual-result: |
+    Католог товаров отображается под футером
+    Скриншот Screenshots/Bug_005.jpg
+
+- summary: |
+    При изменении размера окна браузера изображения товаров растягиваются по ширине
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100, разрешение экрана 1920*1080
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Уменьшить ширину окна браузера вдвое
+  expected-result: |
+    Изображения товара изменяется пропорционально оригинальному размеру изображения
+  actual-result: |
+    Изображения товаров растягиваются по ширине
+    Скриншот Screenshots/Bug_007.jpg
+
+- summary: |
+    Не отображается картинка у языка English
+  environment: |
+    Windows 10, Google Chrome Версия 127.0.6533.100, разрешение экрана 1920*1080
+  steps-to-reproduce: |
+    1. Открыть в браузере https://hexlet-products-store.vercel.app/
+    2. Нажать на Language
+  expected-result: |
+    При нажатии на Language у всех доступных языков отображается картинка в виде флага страны
+  actual-result: |
+    В списке у языка English отсутствует картинка
+    Скриншот Screenshots/Bug_008.jpg
