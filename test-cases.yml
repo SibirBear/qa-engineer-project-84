@@ -186,9 +186,10 @@
   requirement: |
     Должны быть показан предыдущий список товаров
   prerequisites: |
-    После тест-кейса "Проверка кнопки навигации Next на главной странице"
+    Открыта главная страница https://hexlet-products-store.vercel.app/
   test-data:
   steps:
+    - нажать кнопку Next
     - нажать кнопку Previous
   expected-result: |
     Должен быть показан предыдущий список товаров
